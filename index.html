@@ -5,52 +5,95 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<style>
+    button{
+        border:none;
+        border-radius: 10px;
+        padding:15px;
+        background: #bababa;
+        color: #0b0b0b;
+        margin: 0 10px;
+    }
+    button:hover{
+        background: #295c45;
+        padding:17px;
+        color:#bababa;
+    }
+</style>
 </head>
 <body>
     <h1>
-      THE TITLE OF YOUR WEBPAGE
+        JS Game
     </h1>
     <div id="container">
         <div class="content">
         This is the glorous text-content!
-      </div>
-      <button>
-      click me
-      </button>
+    </div>
+    <div class="choices">
+      <button id = "rock" value =1>ROCK</button>
+      <button id = "paper" value =2>PAPER</button>
+      <button id = "scissors" value =3>SCISSORs</button>
+    </div>
     </div>
   </body>
 <script>
     //Game of Rock paper Scissors
-const h1= document.querySelector('h1');
-
-const content= document.querySelector('.content');
+const container= document.querySelector('#container');
 const choices = {1 : "Rock", 2: "Paper", 3: "Scissors"};
 
+const btns = document.querySelectorAll('button');
 let userPoint= 0, compPoint =0;
-//content.textContent = choices;
+let round = 1;
+const getComptChoice = () =>  Math.floor(Math.random()*3) +1;
+
+btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        if(round == 3)
+        winner(userPoint, compPoint);
+        else
+        startRound(btn.value, getComptChoice())
+        round++;
+    }
+        );  
+});
+
+const h = document.createElement('h1');
+container.appendChild(h);
 
 function startRound(playerChoice, compChoice){
- content.textContent = `userChoice  ${choices[playerChoice]} \n Compchoice ${choices[compChoice]}`;
+    
+  h.textContent = `userChoice:  ${choices[playerChoice]}  Compchoice: ${choices[compChoice]}`;
   if(compChoice == playerChoice);
-  
+    
 	else if(compChoice == 1 && playerChoice == 3 || compChoice == 2 && playerChoice == 1 || compChoice == 3 && playerChoice == 2)
   	compPoint++;
    
   else 
   	userPoint++;
-   
+
+    //round++;
+
 }
 
-const getUserChoice = () => parseInt(prompt("Enter choice"));
-const getComptChhoice = () =>  Math.floor(Math.random()*3) +1;
+const h1 = document.createElement('h1');
+container.appendChild(h1);
 
-//content.textContent  =getComptChhoice();
+const h2 = document.createElement('h2');
+container.appendChild(h2);
 
-for(let i= 0 ; i < 3; i++){
-	startRound(getUserChoice(),getComptChhoice());
-}
+
+function winner(userPoint, compPoint){
 h1.textContent = `userPoint  ${userPoint} \n CompPoint ${compPoint}`;
-    
+
+if(userPoint == compPoint)
+    h2.textContent = "DRAWW MATCH";
+else
+h2.textContent = (userPoint > compPoint) ? "USer WIns" : "Computer Wins";
+
+//console.log();
+
+
+}    
     
 </script>
 
