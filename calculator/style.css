@@ -1,0 +1,83 @@
+body{
+    width:100vh;
+    height:100vh;
+    margin:auto auto;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+} 
+.container{
+    height:450px;
+    width:400px;
+    margin:0 auto;
+    background: rgb(112, 120, 119);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+    .row1{
+        padding:5px;
+        width: 90%;
+        
+        text-align: center;
+        color:aliceblue;
+        display:flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 25px;
+    }
+    .screen{
+        background:rgb(194, 191, 191);
+        padding:10px;
+        width:100%;
+        height:20px;
+        margin:0 20px;
+        text-align: center;
+        align-items: center;
+        color:rgb(25, 13, 13);
+       
+    }
+    .screen:hover{
+        background-color: rgb(189, 244, 232);
+        cursor:crosshair;
+    }
+    .previousScreen{
+        font-size: 16px;
+        float:right;
+        margin:-10px 0;
+    }
+    .correct{
+        float:right;
+        width:150px;
+
+    }
+    .correct:hover{
+        background:rgb(77, 105, 130)
+    }
+    button{
+        border:1px solid rgb(50, 60, 69);
+        border-radius:4px;
+        padding:15px 20px;
+        background: rgb(233, 233, 233);
+        text-align: center;
+        font-size: medium;
+        color:rgb(0, 0, 0);
+        margin:10px;
+        transition-duration: .1s;
+    }
+    .operator:hover{
+        background:rgb(88, 119, 42);
+
+    }
+    .operand:hover{
+        background:rgb(130, 47, 34);
+    }
+    .equals:hover{
+        background:rgb(17, 96, 92);
+    }
+    .clear:hover{
+        background:rgb(9, 145, 97)
+    }
