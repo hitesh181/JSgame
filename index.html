@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+      THE TITLE OF YOUR WEBPAGE
+    </h1>
+    <div id="container">
+        <div class="content">
+        This is the glorous text-content!
+      </div>
+      <button>
+      click me
+      </button>
+    </div>
+  </body>
+<script>
+    //Game of Rock paper Scissors
+const h1= document.querySelector('h1');
+
+const content= document.querySelector('.content');
+const choices = {1 : "Rock", 2: "Paper", 3: "Scissors"};
+
+let userPoint= 0, compPoint =0;
+//content.textContent = choices;
+
+function startRound(playerChoice, compChoice){
+ content.textContent = `userChoice  ${choices[playerChoice]} \n Compchoice ${choices[compChoice]}`;
+  if(compChoice == playerChoice);
+  
+	else if(compChoice == 1 && playerChoice == 3 || compChoice == 2 && playerChoice == 1 || compChoice == 3 && playerChoice == 2)
+  	compPoint++;
+   
+  else 
+  	userPoint++;
+   
+}
+
+const getUserChoice = () => parseInt(prompt("Enter choice"));
+const getComptChhoice = () =>  Math.floor(Math.random()*3) +1;
+
+//content.textContent  =getComptChhoice();
+
+for(let i= 0 ; i < 3; i++){
+	startRound(getUserChoice(),getComptChhoice());
+}
+h1.textContent = `userPoint  ${userPoint} \n CompPoint ${compPoint}`;
+    
+    
+</script>
+
+</html>
