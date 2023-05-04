@@ -1,0 +1,86 @@
+<html>
+<head>
+<style>
+.container{
+  height:400px;
+  width:900px;
+  background: yellow;
+  display:flex;
+}
+.container div{
+  height: 20px;
+  width:  20px;
+  background:black;
+  border: 1px solid green;
+  color:blue;
+  text-align: center;
+}
+
+.container .hovers1{
+    background: rgb(110, 84, 53);
+}
+</style>
+</head>
+<body>
+  <div class=hovers>
+  </div>
+  <div class = "container">
+
+  </div>
+  <button>Change Grid</button>
+</body>
+<script>
+    const container = document.querySelector('.container');
+    const btn = document.querySelector('button');
+    let color = "black";
+
+    btn.addEventListener('click', ()=> {
+        let size = prompt("Enter your choice of dics per side  < 50");
+        //color = prompt("Enter your choice of Color of grid ");
+        container.textContent="";
+        drawGrid(size);
+    });
+
+drawGrid(16);
+
+function drawGrid(n){
+        for(let i=1; i <= n; i++){
+            let div = document.createElement("div");
+            for(let j=1; j <= n; j++){
+                
+                let innerDiv = document.createElement("div");
+                innerDiv.style.backgroundColor = color;
+                div.appendChild(innerDiv); 
+            }
+        container.appendChild(div);
+        }
+}
+function randomRGB() {
+  var x = Math.floor(Math.random() * 256);
+  var y = Math.floor(Math.random() * 256);
+  var z = Math.floor(Math.random() * 256);
+  var RGBColor = "rgb(" + x + "," + y + "," + z + ")";  
+  return RGBColor;
+}
+
+
+
+const divs = document.querySelectorAll('.container div');
+    divs.forEach(div => {
+        div.addEventListener('mouseover', (e) => {
+            //div.classList.add('hovers1');
+            div.style.background = randomRGB();
+            
+    })
+    });
+
+    divs.forEach(div => {
+        div.addEventListener('mouseout', (e) => {
+            //div.classList.remove('hovers1');
+            div.style.background = color;
+    })
+    });
+
+
+</script>
+</html>
